@@ -65,7 +65,8 @@ To use `main_mod.js` on your webpage, here are the steps you need.
 
 For an example gui (also open source), see
 [here](http://tshort.github.io/mdpad/mdpad.html?chua.md). The Markdown
-source for this example is [here](http://tshort.github.io/mdpad/chua.md).
+source for this example is
+[here](http://tshort.github.io/mdpad/chua.md). 
 
 ## Compiling the OpenModelica libraries
 
@@ -83,9 +84,11 @@ following:
   functionality of simulations won't work.
 - Compile `f2c` using `emcc` in
   `openmodelica/SimulationRuntime/c/simulation/libf2c`. I don't think
-  I needed any changes, just `emmake make -f Makefile.emscripten`.
-- Compile `expat` using `emcc`. I don't think I needed any changes,
+  I made any changes, just `emmake make -f Makefile.emscripten`.
+- Compile `expat` using `emcc`. I don't think I made any changes,
   just `emconfigure configure` then `emmake make`. 
+
+
 
 ## Status
 
