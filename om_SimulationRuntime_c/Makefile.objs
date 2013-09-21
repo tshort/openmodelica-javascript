@@ -1,0 +1,103 @@
+
+#Files for meta folder
+META_OBJS = \
+meta_modelica_builtin.o \
+meta_modelica_string_lit.o \
+meta_modelica_segv.o \
+realString.o \
+meta_modelica.o \
+meta_modelica_real.o \
+gc/mmc_gc.o \
+gc/common.o  \
+gc/roots.o \
+gc/generational.o  \
+gc/marksweep.o
+
+META_HFILES = \
+rml_compatibility.h \
+meta_modelica_builtin.h \
+meta_modelica_builtin_boxptr.h \
+meta_modelica_real.h \
+meta_modelica_string_lit.h \
+meta_modelica_segv.h \
+meta_modelica.h \
+gc/mmc_gc.h \
+gc/common.h \
+gc/generational.h \
+gc/marksweep.h \
+gc/roots.h
+
+
+# Files for util functions
+UTIL_OBJS = base_array.o boolean_array.o omc_error.o division.o generic_array.o index_spec.o integer_array.o java_interface.o list.o memory_pool.o modelica_string.o read_write.o read_matlab4.o real_array.o ringbuffer.o rtclock.o string_array.o utility.o varinfo.o ModelicaUtilities.o omc_msvc.o simulation_options.o tinymt64.o OldModelicaTables.o
+UTIL_HFILES = base_array.h boolean_array.h division.h generic_array.h omc_error.h index_spec.h integer_array.h java_interface.h jni.h jni_md.h jni_md_solaris.h jni_md_windows.h list.h memory_pool.h modelica.h modelica_string.h read_write.h read_matlab4.h real_array.h ringbuffer.h rtclock.h string_array.h utility.h varinfo.h ModelicaUtilities.h simulation_options.h tinymt64.h
+
+# Files for math-support
+MATH_OBJS = bigden.o biglag.o daux.o ddasrt.o ddassl.o dlamch.o dlinpk.o dogleg.o dpmpar.o enorm.o fdjac1.o hybrd.o hybrd1.o hybrj.o lsame.o nelmead.o newuoa.o newuob.o  qform.o  qrfac.o r1mpyq.o r1updt.o trsapp.o update.o pivot.o
+MATH_HFILES = blaswrap.h
+
+SOLVER_OBJS = dassl.o delay.o events.o model_help.o mixedSystem.o mixedSearchSolver.o kinsolSolver.o linearSystem.o linearSolverLapack.o linearSolverLis.o nonlinearSystem.o nonlinearSolverHybrd.o nonlinearSolverNewton.o solver_main.o stateset.o radau.o
+SOLVER_HFILES = dassl.h delay.h events.h mixedSystem.h model_help.h solver_main.h linearSystem.h nonlinearSystem.h stateset.h radau.h
+
+INITIALIZATION_OBJS = initialization.o initialization_data.o method_ipopt.o method_kinsol.o method_newuoa.o method_simplex.o method_nelderMeadEx.o
+INITIALIZATION_HFILES = initialization.h initialization_data.h method_ipopt.h method_kinsol.h method_newuoa.h method_simplex.h method_nelderMeadEx.h
+
+OPTIMIZATION_OBJS = initialOptimizer/allocate_ipopt.o initialOptimizer/initial_guess.o goal/evalF.o constraints/evalfDiffG.o constraints/evalfG.o mainOptimizer/ipoptODE.o
+OPTIMIZATION_HFILES = interfaceOptimization.h
+
+RESULTS_OBJS = read_csv.o simulation_result.o simulation_result_csv.o simulation_result_mat.o simulation_result_plt.o
+RESULTS_HFILES = read_csv.h simulation_result.h simulation_result_csv.h simulation_result_mat.h simulation_result_plt.h
+RESTULS_FILES = read_csv.cpp simulation_result_csv.cpp simulation_result_mat.cpp simulation_result_plt.cpp
+
+SIM_OBJS = simulation_input_xml.o simulation_runtime.o ../linearization/linearize.o
+SIM_OBJS_C = modelinfo.o simulation_info_xml.o options.o
+SIM_HFILES = options.h simulation_input_xml.h simulation_info_xml.h modelinfo.h simulation_runtime.h ../linearization/linearize.h
+
+FMI_OBJS = FMICommon.o FMI1Common.o FMI1ModelExchange.o FMI1CoSimulation.o FMI2Common.o FMI2ModelExchange.o
+
+METAPATH = ./meta/
+METAOBJSPATH = $(META_OBJS:%=$(METAPATH)%)
+METAHFILESPATH = $(META_HFILES:%=$(METAPATH)%)
+
+UTILPATH = ./util/
+UTILOBJSPATH = $(UTIL_OBJS:%=$(UTILPATH)%)
+UTILHFILESPATH = $(UTIL_HFILES:%=$(UTILPATH)%)
+
+MATHPATH = ./math-support/
+MATHOBJSPATH = $(MATH_OBJS:%=$(MATHPATH)%)
+MATHHFILESPATH = $(MATH_HFILES:%=$(MATHPATH)%)
+
+INITIALIZATIONPATH = ./simulation/solver/initialization/
+INITIALIZATIONOBJSPATH = $(INITIALIZATION_OBJS:%=$(INITIALIZATIONPATH)%)
+INITIALIZATIONHFILESPATH = $(INITIALIZATION_HFILES:%=$(INITIALIZATIONPATH)%)
+
+OPTIMIZATIONPATH = ./optimization/
+OPTIMIZATIONOBJSPATH = $(OPTIMIZATION_OBJS:%=$(OPTIMIZATIONPATH)%)
+OPTIMIZATIONHFILESPATH = $(OPTIMIZATION_HFILES:%=$(OPTIMIZATIONPATH)%)
+
+SOLVERPATH = ./simulation/solver/
+SOLVEROBJSPATH = $(SOLVER_OBJS:%=$(SOLVERPATH)%)
+SOLVERHFILESPATH = $(SOLVER_HFILES:%=$(SOLVERPATH)%)
+
+RESULTSPATH = ./simulation/results/
+RESULTSOBJSPATH = $(RESULTS_OBJS:%=$(RESULTSPATH)%)
+RESULTSHFILESPATH = $(RESULTS_HFILES:%=$(RESULTSPATH)%)
+RESULTSFILESPATH = $(RESULTS_FILES:%=$(RESULTSPATH)%)
+
+SIMPATH = ./simulation/
+SIMOBJSPATH = $(SIM_OBJS:%=$(SIMPATH)%)
+SIMOBJSPATHC = $(SIM_OBJS_C:%=$(SIMPATH)%)
+SIMHFILESPATH = $(SIM_HFILES:%=$(SIMPATH)%)
+
+FMIPATH = ./fmi/
+FMIOBJSPATH = $(FMI_OBJS:%=$(FMIPATH)%)
+
+ALL_OBJS = $(METAOBJSPATH) $(UTILOBJSPATH) $(MATHOBJSPATH) $(SOLVEROBJSPATH) $(INITIALIZATIONOBJSPATH) $(OPTIMIZATIONOBJSPATH) $(RESULTSOBJSPATH) $(SIMOBJSPATH) $(SIMOBJSPATHC) meta/meta_modelica_catch.o
+ALL_HEADERS = $(METAHFILESPATH) $(UTILHFILESPATH) $(MATHHFILESPATH) $(SOLVERHFILESPATH) $(INITIALIZATIONHFILESPATH) $(OPTIMIZATIONHFILESPATH) $(RESULTSHFILESPATH) $(SIMHFILESPATH)
+ALL_PATHS = $(METAPATH) $(UTILPATH) $(MATHPATH) $(SOLVERPATH) $(INITIALIZATIONPATH) $(OPTIMIZATIONPATH) $(RESULTSPATH) $(SIMPATH) linearization/
+ALL_PATHS_CLEAN_OBJS = $(ALL_PATHS:%=%*.o) $(ALL_PATHS:%=%*.a) meta/gc/*.o
+
+BASE_OBJS = $(METAOBJSPATH) $(UTILOBJSPATH) $(RESULTSOBJSPATH) meta/meta_modelica_catch.o
+
+COMMON_HEADERS = simulation/libf2c/f2c.h util/omc_msvc.h openmodelica.h omc_inline.h openmodelica_func.h simulation_data.h
+
