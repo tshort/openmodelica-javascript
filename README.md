@@ -39,7 +39,7 @@ To compile your own model, here are the steps needed:
 - Copy the header file `/usr/include/f2c.h` to
   `~/emscripten/system/include` (or wherever your emscripten is installed).
 - Adjust the paths in the `Makefile` as appropriate.
-- Run `make`.
+- Run `emmake make`.
 
 This should give you the file `main_mod.js`. You can try running it
 with `node main_mod.js`. It will fail because the xml initiation file
@@ -69,18 +69,21 @@ source for this example is [here](http://tshort.github.io/mdpad/chua.md).
 
 ## Compiling the OpenModelica libraries
 
-This repository includes the `libSimulationRuntimeC.so` and
+This repository includes the `libSimulationRuntimeC.so`, `libf2c.a`, and
 `libexpat.so` needed to compile models. If you want to compile these
 yourself, then in addition to the steps above, you need to do the
 following:
 
-- In `openmodelica/SimulationRuntime/c`, run `make -f
+- In `openmodelica/SimulationRuntime/c`, run `emmake make -f
   Makefile.emscripten`. 
 - The only change I remember making to the C runtime was in the file
   `openmodelica/SimulationRuntime/c/simulation/simulation_runtime.cpp`
   where I added a return to avoid the `regcomp` routine which I guess
   that Emscripten doesn't support. Given that, the `filter`
   functionality of simulations won't work.
+- Compile `f2c` using `emcc` in
+  `openmodelica/SimulationRuntime/c/simulation/libf2c`. I don't think
+  I needed any changes, just `emmake make -f Makefile.emscripten`.
 - Compile `expat` using `emcc`. I don't think I needed any changes,
   just `emconfigure configure` then `emmake make`. 
 

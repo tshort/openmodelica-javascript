@@ -10,7 +10,7 @@ DLLEXT=.so
 CFLAGS_BASED_ON_INIT_FILE= 
 CFLAGS=$(CFLAGS_BASED_ON_INIT_FILE) ${SIM_OR_DYNLOAD_OPT_LEVEL} -fPIC ${MODELICAUSERCFLAGS} 
 CPPFLAGS=-I"/usr/include/omc" -I. -L"/usr/lib/omlibrary/Modelica 3.2.1/Electrical/Analog/Examples"  -DOPENMODELICA_XML_FROM_FILE_AT_RUNTIME
-LDFLAGS=-L"/home/tshort/openmodelica/SimulationRuntime/c" iL"/home/tshort/chua_js" -O2 /home/tshort/chua_js/libexpat.so -lexpat -lSimulationRuntimeC -lf2c -s TOTAL_MEMORY=536870912 -s MAX_SETJMPS=20000 -s OUTLINING_LIMIT=20000
+LDFLAGS= -L"./" -O2 -lexpat -lSimulationRuntimeC -lf2c -s TOTAL_MEMORY=536870912 -s MAX_SETJMPS=20000 -s OUTLINING_LIMIT=20000
 PERL=perl
 FILEPREFIX=Modelica.Electrical.Analog.Examples.ChuaCircuit
 MAINFILE=$(FILEPREFIX).c
