@@ -1,0 +1,31 @@
+------------------------------------------------------------------------------
+To do list for expat
+------------------------------------------------------------------------------
+
+IMPORTANT:
+
+Transition must be made for the removal of the libexpat.so.0 symlink
+(post-lenny, for the moment in experimental?).
+
+
+BUGS:
+------------------------------------------------------------------------------
+Number Description
+------------------------------------------------------------------------------
+245840 incorrect pointer adjustments on buffer reallocation
+------------------------------------------------------------------------------
+
+WISHLIST:
+------------------------------------------------------------------------------
+Number Description                                                    Adressed
+------------------------------------------------------------------------------
+230856 please build libexpat1-pic package for library reduction       wontfix
+277133 Request for XML_UNICODE support                                2.0.1-1
+429175 New upstream version 2.0.1                                     2.0.1-1
+
+-      add pkgconfig support                                          wontfix?
+-      add expat.m4 to /usr/share/aclocal instead                     2.0.1-1
+-      build -Os
+------------------------------------------------------------------------------
+
+

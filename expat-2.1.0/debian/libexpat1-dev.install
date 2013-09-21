@@ -1,0 +1,7 @@
+usr/include
+usr/lib/*/*.a
+usr/lib/*/*.la
+usr/lib/*/*.so
+usr/lib/*/pkgconfig/expat.pc
+../../doc/*	usr/share/doc/libexpat1-dev/expat.html/
+../../conftools/expat.m4 usr/share/aclocal/

@@ -1,0 +1,7 @@
+expat for Debian
+----------------
+
+The package uses the dpatch management solution. See
+/usr/share/doc/dpatch/README.source.gz.
+
+ -- Daniel Leidert <daniel.leidert@wgdd.de>, October 2009

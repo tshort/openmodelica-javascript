@@ -1,0 +1,59 @@
+Source: expat
+Section: text
+Priority: optional
+Maintainer: Debian QA Group <packages@qa.debian.org>
+Standards-Version: 3.9.3
+Build-Depends: debhelper (>= 8.1.3), docbook-to-man,
+ dpkg-dev (>= 1.16.0),
+ gcc-multilib [i386 powerpc sparc s390]
+Homepage: http://expat.sourceforge.net
+Vcs-Browser: http://svn.debian.org/wsvn/debian-xml-sgml/packages/expat/trunk/
+Vcs-Svn: svn://svn.debian.org/svn/debian-xml-sgml/packages/expat/trunk/
+DM-Upload-Allowed: yes
+
+Package: libexpat1-dev
+Section: libdevel
+Architecture: any
+Multi-Arch: same
+Provides: libexpat-dev
+Conflicts: libexpat-dev
+Depends: ${misc:Depends}, libexpat1 (= ${binary:Version}), libc6-dev | libc-dev
+Description: XML parsing C library - development kit
+ This package contains the header file and development libraries of
+ expat, the C library for parsing XML.  Expat is a stream oriented XML
+ parser.  This means that you register handlers with the parser prior
+ to starting the parse.  These handlers are called when the parser
+ discovers the associated structures in the document being parsed.  A
+ start tag is an example of the kind of structures for which you may
+ register handlers.
+
+Package: libexpat1
+Section: libs
+Architecture: any
+Conflicts: wink (<= 1.5.1060-4)
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
+Description: XML parsing C library - runtime library
+ This package contains the runtime, shared library of expat, the C
+ library for parsing XML. Expat is a stream-oriented parser in
+ which an application registers handlers for things the parser
+ might find in the XML document (like start tags).
+
+Package: libexpat1-udeb
+XC-Package-Type: udeb
+Section: debian-installer
+Priority: extra
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: XML parsing C library - runtime library
+ This package contains the runtime, shared library of expat, the C
+ library for parsing XML.
+
+Package: expat
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: XML parsing C library - example application
+ This package contains xmlwf, an example application of expat, the C
+ library for parsing XML.  The arguments to xmlwf are one or more
+ files which are each to be checked for XML well-formedness.

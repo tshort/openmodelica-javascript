@@ -1,0 +1,518 @@
+expat (2.1.0-2) experimental; urgency=low
+
+  * QA upload, set maintainer address to the QA team.
+  * Stop building the 64bit packages.
+  * Move expat_config.h into the multiarch include location.
+  * Make libexpat1-dev Multi-Arch: same.
+  * Update config.{guess,sub} for aarch64 (Wookey). Closes: #689619.
+
+ -- Matthias Klose <doko@debian.org>  Wed, 12 Dec 2012 17:44:15 +0100
+
+expat (2.1.0-1) unstable; urgency=low
+
+  * QA upload.
+  * expat 2.1.0 release.
+
+ -- Matthias Klose <doko@debian.org>  Wed, 04 Apr 2012 10:22:55 +0200
+
+expat (2.1.0~beta3-2) unstable; urgency=medium
+
+  * Fix symbol version for XML_SetHashSalt. Addresses #665362.
+
+ -- Matthias Klose <doko@debian.org>  Fri, 23 Mar 2012 17:33:01 +0100
+
+expat (2.1.0~beta3-1) unstable; urgency=low
+
+  * QA upload.
+  * Beta release 2.1.0 beta3. Closes: #663579.
+    - CVE-2012-1147 - Resource leak in readfilemap.c.
+    - CVE-2012-1148 - Memory leak in poolGrow.
+    - CVE-2012-0876 - Hash DOS attack.
+    - Remove patches applied upstream.
+  * Remove Daniel from uploaders (orphaned package).
+  * Update package format to 3.0.
+  * Enable hardened build. Closes: #653526.
+  * Add a symbols file.
+  * Install expat pkgconfig file.
+
+ -- Matthias Klose <doko@debian.org>  Tue, 20 Mar 2012 22:37:22 +0100
+
+expat (2.0.1-7.2ubuntu1) precise; urgency=low
+
+  * CVE-2012-0876: Randomize hashes of xml attributes in the expat library
+    to avoid a denial of service due to hash collisions.  Patch by David
+    Malcolm with some modifications by the expat project.
+
+ -- Matthias Klose <doko@ubuntu.com>  Thu, 15 Mar 2012 02:13:54 +0100
+
+expat (2.0.1-7.2) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Fix symlink breakage introduced with my last upload.  (Closes: #647340)
+
+ -- Robert Millan <rmh@debian.org>  Wed, 02 Nov 2011 09:42:21 +0000
+
+expat (2.0.1-7.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Multi-arch support (patch from Steve Langaseck).  (Closes: #632261)
+  * Move libexpat.so.1 to /lib.  (Closes: #637101)
+
+ -- Robert Millan <rmh@debian.org>  Sat, 22 Oct 2011 10:09:29 +0000
+
+expat (2.0.1-7) unstable; urgency=low
+
+  * debian/control (Depends): Fixed debhelper-but-no-misc-depends.
+  * debian/patches/560901_CVE_2009_3560.dpatch: Adjusted.
+    - lib/xmlparse.c (doProlog): Revised patch for CVE-2009-3560 after
+      regressions have been detected (closes: #561658). Many thanks to
+      Niko Tyni and Karl Waclawek for their help and the fix.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Tue, 29 Dec 2009 22:18:35 +0100
+
+expat (2.0.1-6) unstable; urgency=medium
+
+  * debian/patches/560901_CVE_2009_3560.dpatch: Added.
+    - lib/xmlparse.c (doProlog): Fix DoS vulnerability CVE-2009-3560 (closes:
+      #560901).
+  * debian/patches/00list: Adjusted.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Sun, 13 Dec 2009 12:06:07 +0100
+
+expat (2.0.1-5) unstable; urgency=medium
+
+  * debian/control (Standards-Version): Bumped to 3.8.3.
+    (Priority, Section): Fixed binary-control-field-duplicates-source.
+    (Description): Fixed extended-description-is-probably-too-short and
+    duplicate-long-description.
+  * debian/rules (CFLAGS): Drop useless '-pthread -D_REENTRANT' from version
+    1.95-8-1 (closes: #551079).
+  * debian/README.source: Added for policy compliance.
+  * debian/patches/551936_CVE_2009_2625.dpatch: Added.
+    - lib/xmltok_impl.c (updatePosition): Fix DoS vulnerability CVE-2009-2625
+      and CVE-2009-3720 (closes: #551936).
+  * debian/patches/00list: Adjusted.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Tue, 03 Nov 2009 22:41:38 +0100
+
+expat (2.0.1-4) unstable; urgency=low
+
+  * debian/libexpat1-dev.install: Install the libtool .la files again and drop
+    them after Lenny (closes: #485460).
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Mon, 09 Jun 2008 20:48:30 +0200
+
+expat (2.0.1-3) unstable; urgency=low
+
+  * debian/patches/485129_fix_underquotation_in_m4.dpatch: Added.
+    - conftools/expat.m4: Fixed underquotation in AC_DEFUN (closes: #485129).
+  * debian/patches/00list: Adjusted.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Sun, 08 Jun 2008 20:15:58 +0200
+
+expat (2.0.1-2) unstable; urgency=low
+
+  * debian/rules: Set correct host flags to prevent FTBFS on architectures,
+    where we build the lib64expat* packages.
+    (build-stamp, install): Fixed a stupid mistake leading to an FTBFS on the
+    architectures, where we don't build the lib64expat* packages.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Sat, 07 Jun 2008 20:35:04 +0200
+
+expat (2.0.1-1) unstable; urgency=low
+
+  * New upstream release 2.0.1 (closes: #429175).
+
+  [ Matthias Klose ]
+  * debian/control: Added 64bit libraries.
+    (Build-Depends): Added gcc-multilib.
+  * debian/lib64expat1-dev.install: Added.
+  * debian/lib64expat1.install: Ditto.
+  * debian/lib64expat1.shlibs: Ditto.
+  * debian/libexpat1.links: Remove the old libexpat.so.0 symlink.
+  * debian/libexpat1-udeb.links: Ditto.
+  * debian/libexpat1.shlibs: Removed libexpat.so.0.
+
+  [ Daniel Leidert ]
+  * Removed Debian-written autotools stuff.
+  * debian/control: Added Homepage and Vcs* fields. Added conflicts with wink
+    package version, relying on the compat symlink.
+    (Standards-Version): Increased to 3.7.3.
+    (Build-Depends): Added dpatch and docbook-to-man.
+    (Uploaders): Added myself.
+    (Depends): lib64expat1-dev should depend on libexpat1-dev.
+  * debian/copyright: Added missing copyright of the last years.
+  * debian/expat.install: Do not copy the upstream manpage (see debian/rules).
+  * debian/libexpat1-dev.install: Install the expat.m4 macro file. Do not
+    install the libtool .la files.
+  * debian/lib64expat1-dev.install: Do not install the libtool .la files
+    either.
+  * debian/libexpat1-dev.examples: Only install the C sources.
+  * debian/libexpat1-udeb.install: Make sure, only libexpat is installed (for
+    the moment).
+  * debian/libexpat1.shlibs: Adjusted for libexpatw.
+  * debian/lib64expat1.shlibs: Ditto.
+  * debian/rules: Rewritten to make it shorter (yeah sorry, I removed the
+    comments too).
+    - Added dpatch stuff.
+    - Create the manpage xmlwf.1 on-the-fly (there is doc/xmlwf.1, but it has
+      issues and gets patched, so we recreate it).
+    - Build and install libexpatw with XML_UNICODE support enabled (closes:
+      #277133).
+  * debian/patches/82763_xmlwf_error_out_2.dpatch: Added (#82763).
+  * debian/patches/302191_install_expat_config_h.dpatch: Added (#302191).
+  * debian/patches/342684_libtoolize.dpatch: Added (#342684).
+    - Further update configure (closes: #439127).
+  * debian/patches/412786_xmlwf_man_standard_fix.dpatch: Added (#412786).
+  * debian/patches/00list: Added.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Sat, 07 Jun 2008 14:54:30 +0200
+
+expat (2.0.1-0ubuntu1) hardy; urgency=low
+
+  * New upstream version. LP: #133808.
+  * Remove the old libexpat.so.0 symlink; this bug predates Ubuntu (was
+    fixed in version 1.95.5-1).
+  * Drop the extra build files in bcb5/.
+
+ -- Matthias Klose <doko@ubuntu.com>  Wed, 05 Dec 2007 17:37:50 +0100
+
+expat (1.95.8-4ubuntu1) gutsy; urgency=low
+
+  * Build 64bit packages.
+
+ -- Matthias Klose <doko@ubuntu.com>  Sat, 22 Sep 2007 10:00:04 +0200
+
+expat (1.95.8-4) unstable; urgency=low
+
+  * Acknowledged NMUs 1.95.8-3.1 - 1.95.8-3.4
+    ( closes: Bug#355937, Bug#354244, Bug#342684)
+  * lib/expat.h: removed trailing comma from enum XML_Status
+    (closes: Bug#344298)
+  * debian/control: removed 'Provides' from libexpat1-udeb stanza
+    (closes: Bug#419606)
+  * xmlwf/xmlwf.1: removed incorrect statement on well-formedness
+    (closes: Bug#412786
+  * debian/TODO: updated
+  * debian/control: upgraded to Debian Policy 3.7.2 (no changes)
+    (thanks Bryan Donlan <bdonlan@fushizen.net> !)
+  * debian/rules: replaced $(PWD) by $(CURDIR)
+  * debian/control: replaced ${Source-Version} by ${Source-Version}
+    (thanks Bryan Donlan <bdonlan@fushizen.net> !)
+
+ -- Ardo van Rangelrooij <ardo@debian.org>  Sun, 22 Jul 2007 17:59:57 -0500
+  
+expat (1.95.8-3.4) unstable; urgency=low
+
+  * Porter NMU.
+  * Libtool update (closes: bug#342684).
+
+ -- Aurelien Jarno <aurel32@debian.org>  Sun, 10 Dec 2006 20:04:23 +0100
+
+expat (1.95.8-3.3) unstable; urgency=low
+
+  * NMU
+  * Use fixed watch file from Bart Martens.  closes: #354244.
+
+ -- Clint Adams <schizo@debian.org>  Thu,  7 Sep 2006 22:04:05 -0400
+
+expat (1.95.8-3.2) unstable; urgency=low
+
+  * Non Maintainer Upload
+  * Correct mistake in patch for #355937 so that udeb: lines in shlibs file
+    actually refer to the udeb package
+
+ -- Frans Pop <fjp@debian.org>  Tue, 28 Mar 2006 22:09:52 +0200
+
+expat (1.95.8-3.1) unstable; urgency=low
+
+  * Non Maintainer Upload (closes: #355937)
+  * Add support for udeb dependency resolution in shlibs file
+  * Simplify debian/rules by making use of udeb support in debhelper
+  * Update debhelper compatibility to level 5
+
+ -- Frans Pop <fjp@debian.org>  Sat, 18 Mar 2006 01:21:09 +0100
+
+expat (1.95.8-3) unstable; urgency=low
+
+  * Makefile.in: added $(srcdir)/expat_config.h to APIHEADER
+    (closes: Bug#302191)
+  * rebuild against latest libtool for kfreebsd-gnu
+    (closes: Bug#295825)
+
+ -- Ardo van Rangelrooij <ardo@debian.org>  Tue, 19 Apr 2005 21:50:50 -0500
+
+expat (1.95.8-2) unstable; urgency=low
+
+  * rebuild against latest libtool for kfreebsd-gnu
+
+ -- Ardo van Rangelrooij <ardo@debian.org>  Sat, 19 Feb 2005 13:45:36 -0600
+
+expat (1.95.8-1) unstable; urgency=low
+
+  * New upstream release
+    (closes: Bug#263858)
+  * debian/rules: added '-pthread -D_REENTRANT' to 'CFLAGS'
+  * Added debian/watch
+
+ -- Ardo van Rangelrooij <ardo@debian.org>  Tue, 19 Oct 2004 19:31:03 -0500
+
+expat (1.95.6-8) unstable; urgency=low
+
+  * debian/control: fixed typo in maintainer's email address
+
+ -- Ardo van Rangelrooij <ardo@debian.org>  Sun, 29 Feb 2004 11:01:15 -0600
+
+expat (1.95.6-7) unstable; urgency=low
+
+  * debian/control: upgraded to Debian Policy 3.6.1 (no changes)
+  * debian/control: changed 'Maintainer' to 'Debian XML/SGML Group
+    <debian-xml-sgml-pkgs@lists.alioth.debian.org>' and added current
+    maintainer as 'Uploader'
+
+ -- Ardo van Rangelrooij <ardo@debian.org>  Sun, 29 Feb 2004 10:51:47 -0600
+
+expat (1.95.6-6) unstable; urgency=low
+
+  * debian/control: changed section of 'libexpat1-dev' from 'devel'
+    to 'libdevel' to align with override
+  * debian/control: changed priority of 'libexpat1-udeb' from 'optional'
+    to 'extra' to aliagn with override
+
+ -- Ardo van Rangelrooij <ardo@debian.org>  Tue, 29 Jul 2003 19:53:02 -0500
+
+expat (1.95.6-5) unstable; urgency=low
+
+  * debian/control: changed build dependency on 'debhelper' to '(>= 4.1)'
+  * debian/control: upgraded to Debian Policy 3.6.0 (no changes)
+
+ -- Ardo van Rangelrooij <ardo@debian.org>  Mon, 28 Jul 2003 22:45:43 -0500
+
+expat (1.95.6-4) unstable; urgency=low
+
+  * Added support to generate a 'libexpat1-udeb' package for the upcoming
+    gtk frontend for the new debian installer
+    (closes: Bug#183830)
+  * debian/rules: moved debhelper compatibility level setting to
+    'debian/compat' per latest debhelper best practices
+
+ -- Ardo van Rangelrooij <ardo@debian.org>  Sun,  9 Mar 2003 20:42:31 -0600
+
+expat (1.95.6-3) unstable; urgency=low
+
+  * lib/expat.h: moved declaration of 'enum XML_Status' up
+    (closes: Bug#179914)
+
+ -- Ardo van Rangelrooij <ardo@debian.org>  Mon, 17 Feb 2003 19:28:14 -0600
+
+expat (1.95.6-2) unstable; urgency=low
+
+  * debian/libexpat1.shlibs: changed to 1.95.6 (oops!)
+
+ -- Ardo van Rangelrooij <ardo@debian.org>  Sun,  2 Feb 2003 18:24:54 -0600
+
+expat (1.95.6-1) unstable; urgency=low
+
+  * New upstream release
+    - fixes frequent segfault on nontrivial documents using namespaces
+      (closes: Bug#179462)
+
+ -- Ardo van Rangelrooij <ardo@debian.org>  Sun,  2 Feb 2003 14:53:04 -0600
+
+expat (1.95.5-1) unstable; urgency=low
+
+  * New upstream release
+    (closes: Bug#164202)
+  * debian/control: changed dependency for package 'libexpat1-dev' on the
+    C library from 'libc6-dev' to 'libc6-dev | libc-dev'
+  * debian/libexpat1.shlibs: added to provide info about libexpat.so.0
+    (which is a symlink to libexpat.so.1 due to an NMU mishap, see below)
+    (closes: Bug#147751)
+
+ -- Ardo van Rangelrooij <ardo@debian.org>  Wed, 25 Dec 2002 14:46:32 -0600
+
+expat (1.95.2-10) unstable; urgency=low
+
+  * autogen.sh: upgraded to 'automake1.7'
+  * debian/rules: removed 'autotools' target as its function is now handled
+    by 'autogen.sh'
+  * debian/control: removed obsolete build dependency on 'autotools-dev'
+  * debian/control: added 'Provides' and 'Conflicts' with 'libexpat-dev'
+    for package 'libexpat1-dev'
+  * debian/control: upgraded to Debian Policy 3.5.8
+
+ -- Ardo van Rangelrooij <ardo@debian.org>  Sat, 21 Dec 2002 23:33:34 -0600
+
+expat (1.95.2-9) unstable; urgency=low
+
+  * debian/rules: migrated documentation installation handling to debhelper
+
+ -- Ardo van Rangelrooij <ardo@debian.org>  Sun,  6 Oct 2002 22:52:54 -0500
+
+expat (1.95.2-8) unstable; urgency=low
+
+  * debian/rules: migrated to autoconf 2.52 and above
+
+ -- Ardo van Rangelrooij <ardo@debian.org>  Sun,  6 Oct 2002 15:37:04 -0500
+
+expat (1.95.2-7) unstable; urgency=low
+
+  * debian/rules: upgraded to debhelper v4
+  * debian/control: changed build dependency on debhelper accordingly
+  * debian/rules: migrated from 'dh_movefiles' to 'dh_install'
+  * debian/rules: split off 'install' target from 'binary-arch' target
+
+ -- Ardo van Rangelrooij <ardo@debian.org>  Sat, 10 Aug 2002 11:02:25 -0500
+
+expat (1.95.2-6) unstable; urgency=low
+
+  * debian/control: removed unnecessary build dependency on 'autoconf'
+
+ -- Ardo van Rangelrooij <ardo@debian.org>  Sun,  9 Dec 2001 12:19:40 -0600
+
+expat (1.95.2-5) unstable; urgency=low
+
+  * Added man page for 'xmlwf'
+    (closes: Bug#39461)
+  * Converted to autotools-dev
+  * debian/control: added build dependency on 'autotools-dev'
+  * debian/control: removed build dependency on 'automake' and 'libtool'
+
+ -- Ardo van Rangelrooij <ardo@debian.org>  Fri,  7 Dec 2001 23:35:47 -0600
+
+expat (1.95.2-4) unstable; urgency=low
+
+  * Removed explicit 'dhelp' support since 'doc-base' now takes care of this
+  * debian/control: upgraded to Debian Policy 3.5.6
+
+ -- Ardo van Rangelrooij <ardo@debian.org>  Sun,  4 Nov 2001 11:22:19 -0600
+
+expat (1.95.2-3) unstable; urgency=high
+
+  * Includes NMU 1.95.2-2.1
+    (closes: Bug#111957)
+  * Added symlink from libexpat.so.0 to libexpat.so.1 to handle the
+    problems caused by the library soname change introduced by this NMU
+    (closes: Bug#116724, Bug#116727)
+
+ -- Ardo van Rangelrooij <ardo@debian.org>  Wed, 31 Oct 2001 11:09:47 -0600
+
+expat (1.95.2-2.1) unstable; urgency=low
+
+  * NMU.
+  * Added call to aclocal before call to autoconf in Makefile.in.
+    Closes: #111957.
+  * Ran 'libtoolize --force --copy' to update libtool info.  This
+    works around problem with libtool version skew during build.
+    Should this be done in Makefile.in?
+
+ -- Jeff Licquia <jlicquia@progeny.com>  Wed, 17 Oct 2001 10:35:46 -0600
+
+expat (1.95.2-2) unstable; urgency=low
+
+  * debian/control: added build dependency on 'libtool'
+    (closes: Bug#111693)
+
+ -- Ardo van Rangelrooij <ardo@debian.org>  Sat,  8 Sep 2001 14:29:55 -0500
+
+expat (1.95.2-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/copyright: updated
+
+ -- Ardo van Rangelrooij <ardo@debian.org>  Thu,  6 Sep 2001 20:26:55 -0500
+
+expat (1.95.1-6) unstable; urgency=low
+
+  * debian/rules: fixed doc directory handling
+    (closes: Bug#104460)
+  * debian/control: upgraded to Debian Policy 3.5.5
+  * xmlwf/xmlwf.c: changed to return error code 2 upon the first
+    processing error
+    (closes: Bug#82763)
+
+ -- Ardo van Rangelrooij <ardo@debian.org>  Sun, 15 Jul 2001 10:10:05 -0500
+
+expat (1.95.1-5) unstable; urgency=low
+
+  * conftools/config.*: updated to latest version
+    (closes: Bug#94772)
+
+ -- Ardo van Rangelrooij <ardo@debian.org>  Tue,  1 May 2001 21:49:55 -0500
+
+expat (1.95.1-4) unstable; urgency=low
+
+  * debian/control: added build dependency on 'autoconf' and 'automake'
+    (closes: Bug#95296)
+
+ -- Ardo van Rangelrooij <ardo@debian.org>  Thu, 26 Apr 2001 11:25:16 -0500
+
+expat (1.95.1-3) unstable; urgency=low
+
+  * debian/control: updated debhelper dependency to remove 'dh_testversion'
+  * debian/control: upgraded to Debian Policy 3.5.2
+
+ -- Ardo van Rangelrooij <ardo@debian.org>  Tue, 24 Apr 2001 20:56:35 -0500
+
+expat (1.95.1-2) unstable; urgency=low
+
+  * debian/control: fixed section override disparity
+
+ -- Ardo van Rangelrooij <ardo@debian.org>  Mon, 29 Jan 2001 19:31:30 -0600
+
+expat (1.95.1-1) unstable; urgency=low
+
+  * New upstream release
+    (closes: Bug#74383, Bug#81866)
+  * Added doc-base and dhelp support
+
+ -- Ardo van Rangelrooij <ardo@debian.org>  Sun, 28 Jan 2001 09:02:53 -0600
+
+expat (1.1-3) unstable; urgency=low
+
+  * New maintainer
+
+ -- Ardo van Rangelrooij <ardo@debian.org>  Sat,  7 Oct 2000 13:40:57 -0500
+
+expat (1.1-2) unstable; urgency=low
+
+  * debian/rules: more debhelperification and use more FHS stuff
+  * debian/control: standards bumped to 3.2.1 (closes: Bug#70336)
+
+ -- Adam Di Carlo <aph@debian.org>  Wed, 27 Sep 2000 00:56:10 -0400
+
+expat (1.1-1) unstable; urgency=low
+
+  * new upstream version
+  * debian/rules: aesthetic cleanups, use a bit more debhelper stuff to
+    reduce complexity
+
+ -- Adam Di Carlo <aph@debian.org>  Tue,  1 Jun 1999 22:36:29 -0400
+
+expat (1.0.2-1) unstable; urgency=low
+
+  * new upstream version
+  * maintainer name change
+  * standards-version: bumped to 2.5.0 (no changes required)
+
+ -- Adam Di Carlo <aph@debian.org>  Wed, 13 Jan 1999 18:35:53 -0500
+
+expat (1.0-2) unstable; urgency=low
+
+  * debian/rules: fix symlink for docdir of libxmltok1-dev
+
+ -- Adam P. Harris <aph@debian.org>  Sun, 23 Aug 1998 15:51:43 -0400
+
+expat (1.0-1) unstable; urgency=low
+
+  * Initial release.
+  * Makefile: added MPL notice as required by license, modifications to
+    enable building of xmltok and xmlparse as shared and static
+    libraries.
+  * xmltok/Makefile: created to enable building libxmltok.a and
+    libxmltok.so
+  * xmlparse/Makefile: created to enable building libxmlparse.a and and
+    libxmlparse.so
+  * debian/*: Debian-specific files
+
+ -- Adam P. Harris <aph@debian.org>  Mon, 17 Aug 1998 01:12:09 -0400
