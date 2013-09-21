@@ -88,7 +88,11 @@ following:
 - Compile `expat` using `emcc`. I don't think I made any changes,
   just `emconfigure configure` then `emmake make`. 
 
-
+The `expat` and `SimulationRuntime` code is included in this
+repository. These subdirectories are not needed to compile code, but
+they may be useful for recompiling the libraries with Emscripten. Note
+that the `om_SimulationRuntime_c` subdirectory needs to be in the
+`openmodelica/SimulationRuntime/c` directory structure.
 
 ## Status
 
