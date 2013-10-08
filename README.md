@@ -99,6 +99,12 @@ they may be useful for recompiling the libraries with Emscripten. Note
 that the `om_SimulationRuntime_c` subdirectory needs to be in the
 `openmodelica/SimulationRuntime/c` directory structure.
 
+Also included is `CLAPACK` which contains the C version of LAPACK plus
+the reference version of BLAS. This won't be fast, but it does allow
+more OpenModelica models to simulate. Both BLAS and LAPACK compiled
+fine. I did strip out a few auxiliary functions because OpenModelica
+already had these, and Emscripten complained about duplicate symbols.
+
 ## Status
 
 Everything here is extremely experimental at this point. I've only
