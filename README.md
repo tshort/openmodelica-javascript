@@ -18,13 +18,15 @@ calculations are done on the client. Here are several examples:
 
 - [Modelica.Blocks.Examples.PID_Controller](http://tshort.github.io/mdpad/mdpad.html?Modelica.Blocks.Examples.PID_Controller.md)
 - [Modelica.Electrical.Analog.Examples.ChuaCircuit](http://tshort.github.io/mdpad/mdpad.html?Modelica.Electrical.Analog.Examples.ChuaCircuit.md)
-- [Modelica.Electrical.Analog.Examples.OvervoltageProtection](http://tshort.github.io/mdpad/mdpad.html?Modelica.Electrical.Analog.Examples.OvervoltageProtection.md)
 - [Modelica.Electrical.Analog.Examples.Rectifier](http://tshort.github.io/mdpad/mdpad.html?Modelica.Electrical.Analog.Examples.Rectifier.md)
-- [Modelica.Thermal.HeatTransfer.Examples.TwoMasses](http://tshort.github.io/mdpad/mdpad.html?Modelica.Thermal.HeatTransfer.Examples.TwoMasses.md)
 - [Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.fullRobot](http://tshort.github.io/mdpad/mdpad.html?Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.fullRobot.md)
 
 See [here](https://github.com/tshort/mdpad/tree/gh-pages/) for the
-source code for these examples.
+source code for these examples. Here are examples from my area of
+work:
+
+- [Ferroresonance](http://distributionhandbook.com/calculators/mdpad.html?ferro.md)
+- [Switching transients on a network](http://distributionhandbook.com/calculators/mdpad.html?UrbanPrimary.md)
 
 You wouldn't want to run complex Monte Carlo analysis with this, but
 many models should run sufficiently fast for use on the web. With
