@@ -162,7 +162,8 @@ model.
     ```
 
 Next, you need to tie these input elements to model parameters in the
-xml file. Here is an example for the three variables set in the Chua
+xml file. Do this by changing a JavaScript block within the Markdown
+file. Here is an example for the three variables set in the Chua
 example:
 
     // Set some model parameters
