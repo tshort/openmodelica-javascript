@@ -75,8 +75,11 @@ This will update the following files:
   - build/lib/omc/emcc/libf2c.so
   - build/lib/omc/emcc/libSimulationRuntimeC.so
 
-Note that I have only tested this with Linux. I don't know if it will
-work under Windows.
+This repository also contains the Emscripten compiled code for
+LAPACK/BLAS and expat.
+
+Note that I have only tested Emscripten compilation with Linux. I
+don't know if it will work out-of-the-box under Windows.
 
 ## Compiling your model
 
