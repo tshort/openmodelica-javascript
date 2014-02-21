@@ -101,7 +101,7 @@ other files, too. The most important files are:
 
 - Modelica.Electrical.Analog.Examples.ChuaCircuit.js
 - Modelica.Electrical.Analog.Examples.ChuaCircuit_init.xml
-- Modelica.Electrical.Analog.Examples.ChuaCircuit_init.md
+- Modelica.Electrical.Analog.Examples.ChuaCircuit.md
 
 The `js` file is the JavaScript code. The `xml` file is the
 initialization file. You will likely want to modify some of the
