@@ -122,7 +122,7 @@ Launch a web server from within your mdpad directory. I use `python -m
 SimpleHTTPServer` which starts a webserver on port 8000.
 
 Browse to your model, something like
-`http://localhost:8000/mdpad_local.html?Modelica.Electrical.Analog.Examples.ChuaCircuit_init.md`.
+`http://localhost:8000/mdpad_local.html?Modelica.Electrical.Analog.Examples.ChuaCircuit.md`.
 
 ## Fixing up the Model
 
